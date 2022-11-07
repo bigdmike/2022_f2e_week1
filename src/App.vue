@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="overflow-hidden bg-black">
+    <CoverSection />
+    <QuestionSection />
+    <MainTitle />
+    <QuestSection />
+    <div class="w-full overflow-hidden">
+      <TimelineSection />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import QuestSection from '@/components/QuestSection.vue';
+import CoverSection from '@/components/CoverSection.vue';
+import TimelineSection from '@/components/TimelineSection.vue';
+import MainTitle from '@/components/MainTitle.vue';
+import QuestionSection from '@/components/QuestionSection.vue';
+// import { ZoomInScroll } from '@/gsap/scroll/zoom_in';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    QuestSection,
+    CoverSection,
+    TimelineSection,
+    MainTitle,
+    QuestionSection,
+  },
+  data() {
+    return {
+      zoom_in_scroll: null,
+    };
+  },
+  mounted() {
+    // this.zoom_in_scroll = new ZoomInScroll();
+    // this.zoom_in_scroll.setup();
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="@/assets/app.css"></style>
