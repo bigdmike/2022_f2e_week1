@@ -1,24 +1,11 @@
-# f2e_week1
+# 2022 F2E Website Redesign
 
-## Project setup
-```
-npm install
-```
+## 使用技術
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Vue CLI (vue 2)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+GSAP
 
-### Lints and fixes files
-```
-npm run lint
-```
+GSAP ScrollerTrigger
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Tailwind css
