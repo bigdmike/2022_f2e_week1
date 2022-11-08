@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="overflow-hidden bg-black">
+    <MainHeader />
     <CoverSection />
+    <SignUpSection />
     <QuestionSection />
     <MainTitle />
     <QuestSection />
@@ -16,6 +18,8 @@ import CoverSection from '@/components/CoverSection.vue';
 import TimelineSection from '@/components/TimelineSection.vue';
 import MainTitle from '@/components/MainTitle.vue';
 import QuestionSection from '@/components/QuestionSection.vue';
+import MainHeader from '@/components/MainHeader.vue';
+import SignUpSection from '@/components/SignUpSection.vue';
 // import { ZoomInScroll } from '@/gsap/scroll/zoom_in';
 
 export default {
@@ -26,6 +30,8 @@ export default {
     TimelineSection,
     MainTitle,
     QuestionSection,
+    MainHeader,
+    SignUpSection,
   },
   data() {
     return {

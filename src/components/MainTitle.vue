@@ -1,7 +1,7 @@
 <template>
   <section
     ref="MainContent"
-    class="w-full h-[800vh] font-pixel relative overflow-hidden"
+    class="w-full h-[200vh] font-pixel relative overflow-hidden"
   >
     <div
       ref="title"
@@ -147,7 +147,7 @@ export default {
       scrollTrigger: {
         trigger: this.$refs.MainContent,
         start: '0 top',
-        end: window.innerHeight * 2 + ' bottom',
+        end: window.innerHeight + ' top',
         scrub: true,
         pin: this.$refs.title,
       },
@@ -195,8 +195,8 @@ export default {
     gsap.timeline({
       scrollTrigger: {
         trigger: this.$refs.MainContent,
-        start: window.innerHeight * 2 + ' bottom',
-        end: window.innerHeight * 3 + ' top',
+        start: window.innerHeight + ' top',
+        end: window.innerHeight * 2 + ' top',
         scrub: true,
       },
     });
@@ -204,8 +204,9 @@ export default {
     let leave_tl = gsap.timeline({
       scrollTrigger: {
         trigger: this.$refs.MainContent,
-        start: window.innerHeight * 3 + ' bottom',
-        end: window.innerHeight * 4 + ' top',
+        start: window.innerHeight * 2 + ' top',
+        end: window.innerHeight * 2.5 + ' top',
+        markers: true,
         scrub: true,
       },
     });
@@ -241,7 +242,7 @@ export default {
       scrollTrigger: {
         trigger: this.$refs.MainContent,
         start: 'top top',
-        end: 'bottom bottom',
+        end: window.innerHeight * 2.5 + ' top',
         pin: this.$refs.AriticleBox,
       },
     });
@@ -250,15 +251,16 @@ export default {
       scrollTrigger: {
         trigger: this.$refs.MainContent,
         start: 'top top',
-        end: 'bottom bottom',
+        end: window.innerHeight * 2.5 + ' top',
         pin: this.$refs.BackgroundImage,
       },
     });
+
     gsap.to(this.$refs.MainContent, {
       scrollTrigger: {
         trigger: this.$refs.MainContent,
         start: 'top top',
-        end: window.innerHeight * 4 + ' top',
+        end: window.innerHeight * 2.5 + ' top',
         pin: this.$refs.MainContent,
       },
     });

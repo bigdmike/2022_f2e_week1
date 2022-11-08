@@ -38,11 +38,48 @@
         >
           <div>
             <div class="flex items-end mb-10">
-              <p class="mr-5 text-2xl font-black">{{ item.sub_title }}</p>
-              <p class="text-3xl font-black">{{ item.sponsor }}</p>
+              <p class="mr-5 text-2xl font-black font-pixel">
+                {{ item.sub_title }}
+              </p>
+              <div class="relative px-6 py-4 bg-white">
+                <span
+                  class="absolute left-0 right-0 h-1 bg-black -top-1"
+                ></span>
+                <div class="absolute left-0 right-0 flex -bottom-3">
+                  <span class="block w-5 h-1 bg-black"></span>
+                  <div class="block w-3 bg-transparent">
+                    <div class="w-3 h-1 bg-white"></div>
+                    <div class="flex items-stretch w-3 h-1">
+                      <span class="w-1 h-1 bg-black"></span>
+                      <span class="w-1 h-1 bg-white"></span>
+                      <span class="w-1 h-1 bg-black"></span>
+                    </div>
+                    <div class="flex items-stretch w-3 h-1">
+                      <span class="w-1 h-1 bg-transparent"></span>
+                      <span class="w-1 h-1 bg-black"></span>
+                      <span class="w-1 h-1 bg-transparent"></span>
+                    </div>
+                  </div>
+                  <span class="flex-1 block h-1 bg-black"></span>
+                </div>
+                <span
+                  class="absolute top-0 bottom-0 w-1 bg-black -left-1"
+                ></span>
+                <span
+                  class="absolute top-0 bottom-0 w-1 bg-black -right-1"
+                ></span>
+                <p class="text-2xl font-black font-pixel">{{ item.sponsor }}</p>
+              </div>
             </div>
-            <header class="mb-10">
-              <h2 class="font-black text-7xl" v-html="item.title"></h2>
+            <header class="relative mb-10">
+              <h2
+                class="relative z-10 font-black leading-tight text-7xl font-pixel text-primary_yellow"
+                v-html="item.title"
+              ></h2>
+              <span
+                class="absolute top-0 left-0 z-0 font-black leading-tight transform translate-x-1 translate-y-1 text-7xl font-pixel"
+                v-html="item.title"
+              ></span>
             </header>
             <p class="mb-5 text-3xl font-black" v-html="item.content"></p>
             <div>
@@ -70,7 +107,7 @@ export default {
     return {
       quest_data: [
         {
-          title: 'THE F2E<br />活動網站設計',
+          title: 'TheF2E<br />活動網站設計',
           sub_title: 'Week1',
           sponsor: '版塊設計',
           content: '視差滾動',
@@ -224,6 +261,7 @@ export default {
         tl.to(
           article,
           {
+            zIndex: article_index == step_index ? 10 : 0,
             scale:
               article_index == step_index
                 ? 1
