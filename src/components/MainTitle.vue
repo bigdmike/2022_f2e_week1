@@ -34,7 +34,7 @@
         class="relative flex items-center justify-center w-full h-screen"
       >
         <MainTitleMarquee class="absolute left-0 top-5" />
-        <MainTitleMarquee class="absolute left-0 bottom-5" />
+        <MainTitleMarquee class="absolute left-0 bottom-5" :reverse="true" />
 
         <div class="relative z-10 flex items-center justify-center px-20 py-14">
           <span

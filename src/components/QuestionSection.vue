@@ -2,7 +2,7 @@
   <section ref="MainContent" class="relative w-full h-[500vh] bg-black">
     <div ref="QuestionBox" class="absolute top-0 left-0 w-full h-screen">
       <div
-        class="absolute inline-block left-1/2 top-80 question_line whitespace-nowrap"
+        class="absolute inline-block left-1/2 top-32 question_line whitespace-nowrap"
       >
         <h3 class="text-white font-pixel text-8xl">羨慕別人酷酷的網頁動畫</h3>
         <img
@@ -28,7 +28,7 @@
         />
       </div>
       <div
-        class="absolute inline-block left-1/2 bottom-80 question_line whitespace-nowrap"
+        class="absolute inline-block bottom-32 left-1/2 question_line whitespace-nowrap"
       >
         <h3 class="text-white font-pixel text-8xl">滿足不了同事的許願</h3>
         <img

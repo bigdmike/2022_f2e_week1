@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="fixed z-40 w-full max-w-screen-xl transform -translate-x-1/2 top-8 left-1/2"
+    class="fixed z-40 w-full max-w-screen-xl px-10 transform -translate-x-1/2 xl:px-0 top-8 left-1/2"
   >
     <div class="flex items-center justify-end">
       <img src="/img/THE F2E.svg" class="mr-8" />

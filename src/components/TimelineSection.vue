@@ -224,7 +224,7 @@ export default {
                 top: '50%',
               },
               {
-                top: '10%',
+                top: '15%',
               }
             )
             .to(pacman, {
