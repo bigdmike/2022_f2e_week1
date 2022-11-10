@@ -12,28 +12,44 @@
     <img
       ref="RightGhost"
       src="/img/character/ghost_orange.svg"
-      class="absolute -bottom-10 -right-10 transform -rotate-[20deg] -scale-x-100 w-60 z-10"
+      class="absolute md:-bottom-10 sm:-bottom-12 -bottom-4 md:-right-10 sm:-right-20 -right-5 transform -rotate-[20deg] -scale-x-100 sm:w-60 w-24 z-10"
     />
     <img
       ref="TopGhost"
       src="/img/character/ghost_blue.svg"
-      class="absolute -top-20 left-80 transform -rotate-[200deg] w-60 z-10"
+      class="absolute md:-top-20 sm:-top-14 -top-6 md:left-80 sm:left-16 left-8 transform -rotate-[200deg] md:w-60 sm:w-40 w-20 z-10"
     />
     <div
       ref="LeftGhost"
-      class="absolute z-10 flex items-center -bottom-8 left-36"
+      class="absolute z-10 flex items-center sm:-bottom-8 -bottom-2 md:left-36 sm:left-10 left-8"
     >
-      <img src="/img/character/ghost_purple.svg" class="w-32 mr-5" />
-      <img src="/img/character/ghost_red.svg" class="w-32" />
+      <img
+        src="/img/character/ghost_purple.svg"
+        class="mr-4 sm:mr-5 sm:w-32 w-14"
+      />
+      <img src="/img/character/ghost_red.svg" class="sm:w-32 w-14" />
     </div>
     <!-- GHOST -->
-    <div class="relative z-10">
-      <img ref="Title" class="block mb-8" src="/img/text/cover_title.png" />
-      <div class="flex items-center justify-between w-full">
-        <div class="overflow-hidden">
+    <div
+      class="relative z-10 w-full max-w-screen-xl px-20 mx-auto sm:px-10 xl:px-0"
+    >
+      <img
+        ref="Title"
+        class="hidden mb-8 md:block"
+        src="/img/text/cover_title.png"
+      />
+      <img
+        ref="Title"
+        class="block w-full mb-8 md:hidden"
+        src="/img/text/cover_title@sm.png"
+      />
+      <div
+        class="flex flex-col w-full sm:items-center sm:justify-between sm:flex-row"
+      >
+        <div class="mb-5 overflow-hidden sm:mb-0">
           <div
             ref="SubTitle"
-            class="px-10 py-4 text-3xl bg-white text-primary_purple font-pixel"
+            class="px-10 py-3 text-xl text-center bg-white sm:py-4 sm:text-3xl text-primary_purple font-pixel"
           >
             <h2 class="font-pixel">互動式網頁設計</h2>
           </div>

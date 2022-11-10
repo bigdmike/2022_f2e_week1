@@ -4,7 +4,23 @@
   >
     <div class="flex items-center justify-end">
       <img src="/img/THE F2E.svg" class="mr-8" />
-      <div class="relative">
+      <div class="relative inline-flex md:hidden">
+        <button class="relative">
+          <span class="relative z-10 flex items-center">
+            <i class="block w-2 h-2 mr-2 bg-white"></i>
+            <i class="block w-2 h-2 mr-2 bg-white"></i>
+            <i class="block w-2 h-2 bg-white"></i>
+          </span>
+          <span
+            class="absolute top-0 left-0 z-0 flex items-center transform translate-x-[2px] translate-y-[2px]"
+          >
+            <i class="block w-2 h-2 mr-2 bg-primary_purple"></i>
+            <i class="block w-2 h-2 mr-2 bg-primary_purple"></i>
+            <i class="block w-2 h-2 bg-primary_purple"></i>
+          </span>
+        </button>
+      </div>
+      <div class="relative hidden md:block">
         <ol class="relative z-10 flex items-center py-2 bg-white px-7">
           <li v-for="item in menu_list" :key="item.title" class="mx-1">
             <a :href="item.link" target="_blank" class="px-2 py-1 font-bold">{{

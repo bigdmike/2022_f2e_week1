@@ -2,22 +2,32 @@
   <section ref="MainContent" class="relative w-full h-[500vh] bg-black">
     <div ref="QuestionBox" class="absolute top-0 left-0 w-full h-screen">
       <div
-        class="absolute inline-block left-1/2 top-32 question_line whitespace-nowrap"
+        class="absolute inline-block transform -translate-y-1/2 left-1/2 top-1/2 question_line whitespace-nowrap"
       >
-        <h3 class="text-white font-pixel text-8xl">羨慕別人酷酷的網頁動畫</h3>
-        <img
-          src="/img/character/ghost_blue.svg"
-          class="absolute h-full transform translate-x-full -translate-y-1/2 -right-10 top-1/2"
-        />
-        <img
-          src="/img/pacman_yellow_open.svg"
-          class="absolute -right-20 h-full transform translate-x-[200%] -translate-y-1/2 top-1/2"
-        />
+        <div class="relative transform -translate-y-40 md:-translate-y-80">
+          <h3
+            class="text-3xl text-white sm:text-5xl md:text-6xl lg:text-7xl font-pixel xl:text-8xl"
+          >
+            羨慕別人酷酷的網頁動畫
+          </h3>
+          <img
+            src="/img/character/ghost_blue.svg"
+            class="absolute h-full transform translate-x-full -translate-y-1/2 -right-10 top-1/2"
+          />
+          <img
+            src="/img/pacman_yellow_open.svg"
+            class="absolute -right-20 h-full transform translate-x-[200%] -translate-y-1/2 top-1/2"
+          />
+        </div>
       </div>
       <div
         class="absolute inline-block right-1/2 top-1/2 question_line whitespace-nowrap"
       >
-        <h3 class="text-white font-pixel text-8xl">動畫技能樹太雜無從下手</h3>
+        <h3
+          class="text-3xl text-white sm:text-5xl md:text-6xl lg:text-7xl font-pixel xl:text-8xl"
+        >
+          動畫技能樹太雜無從下手
+        </h3>
         <img
           src="/img/character/ghost_purple.svg"
           class="absolute h-full transform -translate-x-full -translate-y-1/2 -scale-x-100 -left-10 top-1/2"
@@ -28,17 +38,23 @@
         />
       </div>
       <div
-        class="absolute inline-block bottom-32 left-1/2 question_line whitespace-nowrap"
+        class="absolute inline-block transform -translate-y-1/2 top-1/2 left-1/2 question_line whitespace-nowrap"
       >
-        <h3 class="text-white font-pixel text-8xl">滿足不了同事的許願</h3>
-        <img
-          src="/img/character/ghost_orange.svg"
-          class="absolute h-full transform translate-x-full -translate-y-1/2 -right-10 top-1/2"
-        />
-        <img
-          src="/img/pacman_yellow_open.svg"
-          class="absolute -right-20 h-full transform translate-x-[200%] -translate-y-1/2 top-1/2"
-        />
+        <div class="relative transform translate-y-40 md:translate-y-80">
+          <h3
+            class="text-3xl text-white sm:text-5xl md:text-6xl lg:text-7xl font-pixel xl:text-8xl"
+          >
+            滿足不了同事的許願
+          </h3>
+          <img
+            src="/img/character/ghost_orange.svg"
+            class="absolute h-full transform translate-x-full -translate-y-1/2 -right-10 top-1/2"
+          />
+          <img
+            src="/img/pacman_yellow_open.svg"
+            class="absolute -right-20 h-full transform translate-x-[200%] -translate-y-1/2 top-1/2"
+          />
+        </div>
       </div>
     </div>
   </section>
