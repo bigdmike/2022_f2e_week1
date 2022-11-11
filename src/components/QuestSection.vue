@@ -150,12 +150,12 @@ export default {
     const bg_line = this.$refs.BackgroundImage.querySelectorAll('.bg_el');
 
     // reset
-    // articles.forEach((item, item_index) => {
-    //   gsap.set(item, {
-    //     // opacity: item_index == 0 ? 1 : (1 / Math.pow(2, item_index)) * 0,
-    //     scale: item_index == 0 ? 1 : 1 / Math.pow(2, item_index),
-    //   });
-    // });
+    articles.forEach((item, item_index) => {
+      gsap.set(item, {
+        opacity: item_index == 0 ? 1 : (1 / Math.pow(2, item_index)) * 0,
+        scale: item_index == 0 ? 1 : 1 / Math.pow(2, item_index),
+      });
+    });
     gsap.set(this.$refs.background, {
       backgroundColor: this.quest_data[0].background_color,
     });

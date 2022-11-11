@@ -1,45 +1,58 @@
 <template>
   <section class="relative z-10 w-full py-40 bg-primary_yellow">
-    <div class="relative w-full max-w-screen-xl mx-auto">
-      <header class="mb-32">
+    <div class="relative w-full max-w-screen-xl px-10 mx-auto xl:px-0">
+      <header class="mb-20 sm:mb-32">
         <div class="relative mb-5">
           <h2
-            class="relative z-10 tracking-tighter text-black text-7xl font-pixel"
+            class="relative z-10 text-5xl tracking-tighter text-black sm:text-6xl md:text-7xl font-pixel"
           >
             Hiring
           </h2>
           <span
-            class="absolute top-0 left-0 z-0 tracking-tighter transform translate-x-1 translate-y-1 text-primary_purple text-7xl font-pixel"
+            class="absolute top-0 left-0 z-0 text-5xl tracking-tighter transform translate-x-1 translate-y-1 sm:text-6xl text-primary_purple md:text-7xl font-pixel"
             >Hiring</span
           >
         </div>
-        <h3 class="text-4xl text-primary_purple font-pixel">職缺博覽會</h3>
+        <h3
+          class="text-2xl sm:text-3xl md:text-4xl text-primary_purple font-pixel"
+        >
+          職缺博覽會
+        </h3>
       </header>
 
       <div
         v-for="item in hiring_list"
         :key="item.title"
-        class="relative w-full px-20 py-16 mb-32"
+        class="relative w-full px-10 py-12 mb-32 md:px-20 sm:px-14 md:py-16"
       >
         <div
-          class="absolute left-0 right-0 flex items-start -top-2 whitespace-nowrap"
+          class="absolute left-0 right-0 flex items-start -top-2 sm:whitespace-nowrap"
         >
-          <span class="block w-24 h-2 bg-black"></span>
+          <span
+            class="block w-full h-2 bg-black sm:flex-initial sm:w-24"
+          ></span>
 
-          <div class="flex items-center px-5 transform -translate-y-1/2">
-            <img class="w-20 mt-3 mr-5" :src="item.image" />
+          <div
+            class="flex items-center flex-shrink-0 px-2 transform -translate-y-1/2 sm:px-5"
+          >
+            <img
+              class="w-10 mt-3 mr-2 sm:mr-5 md:w-20 sm:w-14"
+              :src="item.image"
+            />
             <div class="relative flex-shrink-0 font-pixel">
-              <h3 class="relative z-10 w-full text-6xl font-pixel">
+              <h3
+                class="relative z-10 w-full text-3xl sm:text-5xl md:text-6xl font-pixel"
+              >
                 {{ item.title }}
               </h3>
               <span
-                class="text-[#FBBF00] text-6xl font-pixel absolute top-0 left-0 z-0 transform translate-x-[4px] translate-y-[4px]"
+                class="text-[#FBBF00] md:text-6xl sm:text-5xl text-3xl font-pixel absolute top-0 left-0 z-0 transform translate-x-[4px] translate-y-[4px]"
               >
                 {{ item.title }}</span
               >
             </div>
           </div>
-          <span class="flex-1 block h-2 bg-black"></span>
+          <span class="block w-full h-2 bg-black sm:w-full md:w-full"></span>
         </div>
         <!-- <span class="absolute left-0 right-0 w-full h-2 bg-black -bottom-2">        </span>
 -->
@@ -65,19 +78,23 @@
           class="absolute top-0 bottom-0 w-2 h-full bg-black -right-2"
         ></span>
 
-        <ol class="flex items-stretch -mx-10">
+        <ol class="flex flex-col items-stretch -mx-10 md:flex-row">
           <li
-            class="flex flex-col w-1/3 px-10"
+            class="flex flex-wrap items-center justify-between w-full px-10 mb-10 sm:mb-0 md:justify-start md:items-stretch md:flex-col md:w-1/3"
             v-for="(job, job_index) in item.list"
             :key="`${item.title}_job_${job_index}`"
           >
-            <h4
-              class="flex-1 mb-5 text-2xl font-bold text-primary_purple"
-              v-html="job.title"
-            ></h4>
-            <p class="mb-8 text-xl font-bold">{{ job.pay }}</p>
+            <div class="w-full sm:w-3/4 md:w-auto md:flex-1">
+              <h4
+                class="flex-1 mb-2 text-xl font-bold sm:text-2xl sm:mb-5 text-primary_purple"
+                v-html="job.title"
+              ></h4>
+              <p class="mb-4 font-bold sm:text-xl sm:mb-8">{{ job.pay }}</p>
+            </div>
 
-            <div>
+            <div
+              class="flex-shrink-0 w-full text-left sm:text-center sm:w-1/4 md:w-auto"
+            >
               <a
                 target="_blank"
                 :href="job.link"

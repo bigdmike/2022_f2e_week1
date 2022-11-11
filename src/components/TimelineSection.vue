@@ -4,7 +4,7 @@
     class="relative w-[300vw] flex flex-nowrap h-screen bg-black"
   >
     <div
-      class="absolute left-0 z-10 w-screen transform -translate-y-1/2 progress top-1/2"
+      class="absolute left-0 z-10 w-screen px-10 transform -translate-y-1/2 progress top-1/2 md:px-0"
     >
       <ol
         class="relative flex items-center justify-center w-full max-w-screen-lg mx-auto"
@@ -15,12 +15,12 @@
           <div class="relative">
             <img
               :class="progress >= 70 ? 'opacity-0' : 'opacity-100'"
-              class="relative z-10"
+              class="relative z-10 w-10 sm:w-auto"
               src="/img/pacman_yellow_open.svg"
             />
             <img
               :class="progress >= 70 ? 'opacity-100' : 'opacity-0'"
-              class="absolute top-0 left-0 z-10"
+              class="absolute top-0 left-0 z-10 w-10 sm:w-auto"
               src="/img/pacman_black_open.svg"
             />
           </div>
@@ -28,13 +28,21 @@
         <li
           v-for="(item, item_index) in section_data"
           :key="item.title"
-          class="relative z-0 w-1/5 px-6 text-center"
+          class="relative z-0 w-1/5 h-5 px-6 text-center sm:h-auto"
         >
           <p
             :class="progress >= 70 ? 'text-black' : 'text-yellow-400'"
-            class="block mb-12 transition-colors duration-300 font-pixel"
+            class="absolute block mb-12 text-xs transition-colors duration-300 transform -translate-x-1/2 -translate-y-8 sm:text-base sm:relative sm:left-0 left-1/2 sm:-translate-x-0 sm:translate-y-0"
           >
-            {{ item.title }}
+            <span
+              class="block transition-all duration-200 font-pixel"
+              :class="
+                progress == item_index * 20 + 20
+                  ? 'opacity-100'
+                  : 'sm:opacity-100 opacity-0'
+              "
+              >{{ item.title }}</span
+            >
           </p>
           <span
             v-show="progress < item_index * 20 + 10"
@@ -52,37 +60,42 @@
       v-for="(item, item_index) in section_data"
       :key="`section_${item_index}`"
       :style="`background-color:${item.background_color}`"
+      :class="item.type != 'text_image' ? 'pt-44 md:pt-0' : ''"
       class="flex items-center justify-center flex-shrink-0 w-screen h-screen"
     >
       <div
         v-if="item.type == 'text_image'"
-        :class="item_index % 2 != 0 ? 'flex-row-reverse' : ''"
-        class="flex items-center justify-center w-full max-w-screen-xl -mx-10"
+        :class="
+          item_index % 2 != 0
+            ? 'md:flex-row-reverse sm:justify-start justify-center'
+            : 'sm:justify-end justify-center'
+        "
+        class="flex flex-wrap items-center w-full max-w-screen-xl -mx-10 md:justify-center"
       >
-        <div class="w-3/5 px-10 dialog_box">
+        <div class="w-full px-10 mb-20 md:w-3/5 dialog_box sm:mb-0">
           <MainDialog
-            class="w-full max-w-[588px]"
+            class="w-full max-w-[588px] md:mx-0 mx-auto"
             :title="item.title"
             :content="item.content"
           />
         </div>
         <!--  transform translate-y-1/2 -->
-        <div class="w-2/5 px-10 image_box">
+        <div class="sm:w-[432px] w-[330px] px-10 md:w-2/5 image_box">
           <img class="block w-full" :src="item.image" />
         </div>
       </div>
 
       <div
         v-else
-        class="flex items-start justify-center w-full max-w-screen-xl -mx-10"
+        class="flex flex-col items-start justify-center w-full max-w-screen-xl -mx-10 md:flex-row"
       >
         <div
-          class="w-1/2 px-10 dialog_box"
+          class="w-full px-10 mb-20 md:w-1/2 dialog_box md:mb-0"
           v-for="content in item.content"
           :key="content.title"
         >
           <MainDialog
-            class="w-full max-w-[588px]"
+            class="w-full md:max-w-[588px]"
             :title="content.title"
             :content="content.content"
           />
@@ -93,7 +106,7 @@
 </template>
 
 <script>
-import { gsap } from '@/gsap/gsap_loader';
+import { gsap, ScrollTrigger } from '@/gsap/gsap_loader';
 import MainDialog from '@/components/MainDialog.vue';
 export default {
   name: 'TimelineSection',
@@ -139,12 +152,12 @@ export default {
             {
               title: '評審機制',
               content:
-                '<div class="text-2xl font-bold font-noto_sans">初選：將由六角學院前端/UI評審進行第一波篩選，並於<span class="text-purple-500">12/5(五)公布初選佳作名單</span>。<br/><br/>決選：由三大企業針對該企業主題進行入圍獎最後篩選，並於<span class="text-purple-500">12/23(五)公布企業得獎名單</span>。</div>',
+                '<div class="text-base font-bold sm:text-2xl font-noto_sans">初選：將由六角學院前端/UI評審進行第一波篩選，並於<span class="text-purple-500">12/5(五)公布初選佳作名單</span>。<br/><br/>決選：由三大企業針對該企業主題進行入圍獎最後篩選，並於<span class="text-purple-500">12/23(五)公布企業得獎名單</span>。</div>',
             },
             {
               title: '獎項',
               content:
-                '<div class="font-bold font-noto_sans"><p class="text-2xl font-bold text-purple-500">初選佳作 數位獎狀 共60位</p><p class="mb-5 text-base">每週主題個人組10位、團體組10組</p><p class="text-2xl font-bold text-purple-500">個人企業獎 NT$ 3,000 /位 共6位</p><p class="mb-5 text-base">每週主題各2名，設計1位、前端1位</p><p class="text-2xl font-bold text-purple-500">團體企業獎 NT$ 10,000 /組 共3組</p><p class="mb-5 text-base">每週主題各 1 組</p><p class="text-2xl font-bold">以上皆提供完賽數位獎狀</p></div>',
+                '<div class="font-bold font-noto_sans"><p class="text-base font-bold text-purple-500 sm:text-2xl">初選佳作 數位獎狀 共60位</p><p class="mb-5 text-sm sm:text-base">每週主題個人組10位、團體組10組</p><p class="text-base font-bold text-purple-500 sm:text-2xl">個人企業獎 NT$ 3,000 /位 共6位</p><p class="mb-5 text-sm sm:text-base">每週主題各2名，設計1位、前端1位</p><p class="text-base font-bold text-purple-500 sm:text-2xl">團體企業獎 NT$ 10,000 /組 共3組</p><p class="mb-5 text-sm sm:text-base">每週主題各 1 組</p><p class="text-base font-bold sm:text-2xl">以上皆提供完賽數位獎狀</p></div>',
             },
           ],
         },
@@ -191,20 +204,48 @@ export default {
             // markers: true,
           },
         });
-
-        tl.from(dialog_box, {
-          y: 120,
-          ease: 'none',
-        }).fromTo(
-          image_box,
-          {
-            y: -120,
+        ScrollTrigger.matchMedia({
+          // large
+          '(min-width: 768px)': function () {
+            tl.from(dialog_box, {
+              y: 120,
+              ease: 'none',
+            }).fromTo(
+              image_box,
+              {
+                y: -120,
+              },
+              {
+                y: 100,
+                ease: 'none',
+              }
+            );
           },
-          {
-            y: 100,
-            ease: 'none',
-          }
-        );
+
+          // medium
+          '(min-width: 640px) and (max-width: 768px)': function () {
+            tl.from(
+              dialog_box,
+              {
+                scale: 0,
+                ease: 'none',
+              },
+              'same'
+            ).fromTo(
+              image_box,
+              {
+                y: 220,
+                scale: 0.5,
+              },
+              {
+                y: 100,
+                scale: 1,
+                ease: 'none',
+              },
+              'same'
+            );
+          },
+        });
 
         let progress_tl = gsap.timeline({
           scrollTrigger: {
@@ -217,19 +258,56 @@ export default {
           },
         });
         if (item_index == 0) {
-          progress_tl
-            .fromTo(
-              progress_box,
-              {
-                top: '50%',
-              },
-              {
-                top: '15%',
-              }
-            )
-            .to(pacman, {
-              left: '10%',
-            });
+          ScrollTrigger.matchMedia({
+            // large
+            '(min-width: 768px)': function () {
+              progress_tl
+                .fromTo(
+                  progress_box,
+                  {
+                    top: '50%',
+                  },
+                  {
+                    top: '15%',
+                  }
+                )
+                .to(pacman, {
+                  left: '10%',
+                });
+            },
+
+            // medium
+            '(min-width: 640px) and (max-width: 768px)': function () {
+              progress_tl
+                .fromTo(
+                  progress_box,
+                  {
+                    top: '50%',
+                  },
+                  {
+                    top: '10%',
+                  }
+                )
+                .to(pacman, {
+                  left: '10%',
+                });
+            },
+            '(max-width: 640px)': function () {
+              progress_tl
+                .fromTo(
+                  progress_box,
+                  {
+                    top: '50%',
+                  },
+                  {
+                    top: '13%',
+                  }
+                )
+                .to(pacman, {
+                  left: '13%',
+                });
+            },
+          });
         } else {
           progress_tl.to(pacman, {
             left: (item_index * 2 + 1) * 10 + '%',
