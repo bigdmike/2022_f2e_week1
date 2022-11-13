@@ -32,7 +32,7 @@
             class="absolute h-full transform -translate-y-1/2 top-1/2"
           />
           <img
-            src="/img/pacman_yellow_open.svg"
+            src="/2022_f2e_week1/img/pacman_yellow_open.svg"
             :class="
               item_index == 1
                 ? '-scale-x-100 -left-20 -translate-x-[200%]'
@@ -56,15 +56,15 @@ export default {
       question_list: [
         {
           title: '羨慕別人酷酷的網頁動畫',
-          image: '/img/character/ghost_blue.svg',
+          image: '/2022_f2e_week1/img/character/ghost_blue.svg',
         },
         {
           title: '動畫技能樹太雜無從下手',
-          image: '/img/character/ghost_purple.svg',
+          image: '/2022_f2e_week1/img/character/ghost_purple.svg',
         },
         {
           title: '滿足不了同事的許願',
-          image: '/img/character/ghost_orange.svg',
+          image: '/2022_f2e_week1/img/character/ghost_orange.svg',
         },
       ],
     };

@@ -71,13 +71,22 @@
 
         <ol class="flex flex-wrap items-center -mx-10">
           <li class="w-full px-10 mb-10 sm:w-1/2 md:w-1/3 md:mb-0">
-            <img src="/img/sponsor/sponsor_img.png" class="block w-full" />
+            <img
+              src="/2022_f2e_week1/img/sponsor/sponsor_img.png"
+              class="block w-full"
+            />
           </li>
           <li class="w-full px-10 mb-10 sm:w-1/2 md:w-1/3 md:mb-0">
-            <img src="/img/sponsor/sponsor_img-1.png" class="block w-full" />
+            <img
+              src="/2022_f2e_week1/img/sponsor/sponsor_img-1.png"
+              class="block w-full"
+            />
           </li>
           <li class="w-full px-10 sm:w-1/2 md:w-1/3">
-            <img src="/img/sponsor/sponsor_img-2.png" class="block w-full" />
+            <img
+              src="/2022_f2e_week1/img/sponsor/sponsor_img-2.png"
+              class="block w-full"
+            />
           </li>
         </ol>
       </div>
@@ -130,13 +139,22 @@
 
         <ol class="flex flex-wrap items-center -mx-10">
           <li class="w-full px-10 mb-10 sm:w-1/2 md:w-1/3 md:mb-0">
-            <img src="/img/sponsor/sponsor_img-3.png" class="block w-full" />
+            <img
+              src="/2022_f2e_week1/img/sponsor/sponsor_img-3.png"
+              class="block w-full"
+            />
           </li>
           <li class="w-full px-10 mb-10 sm:w-1/2 md:w-1/3 md:mb-0">
-            <img src="/img/sponsor/sponsor_img-4.png" class="block w-full" />
+            <img
+              src="/2022_f2e_week1/img/sponsor/sponsor_img-4.png"
+              class="block w-full"
+            />
           </li>
           <li class="w-full px-10 sm:w-1/2 md:w-1/3">
-            <img src="/img/sponsor/sponsor_img-5.png" class="block w-full" />
+            <img
+              src="/2022_f2e_week1/img/sponsor/sponsor_img-5.png"
+              class="block w-full"
+            />
           </li>
         </ol>
       </div>
@@ -146,18 +164,21 @@
     >
       <div class="flex items-center">
         <img
-          src="/img/character/ghost_blue.svg"
+          src="/2022_f2e_week1/img/character/ghost_blue.svg"
           class="mr-5 md:mr-10 sm:w-14 w-11"
         />
         <img
-          src="/img/character/ghost_purple.svg"
+          src="/2022_f2e_week1/img/character/ghost_purple.svg"
           class="mr-5 md:mr-10 sm:w-14 w-11"
         />
         <img
-          src="/img/character/ghost_orange.svg"
+          src="/2022_f2e_week1/img/character/ghost_orange.svg"
           class="mr-5 md:mr-10 sm:w-14 w-11"
         />
-        <img src="/img/character/ghost_red.svg" class="sm:w-14 w-11" />
+        <img
+          src="/2022_f2e_week1/img/character/ghost_red.svg"
+          class="sm:w-14 w-11"
+        />
       </div>
     </div>
   </section>

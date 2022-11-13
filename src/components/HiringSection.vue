@@ -117,7 +117,7 @@ export default {
       hiring_list: [
         {
           title: '版塊設計',
-          image: '/img/hiring/blockstudio_logo 1.jpg',
+          image: '/2022_f2e_week1/img/hiring/blockstudio_logo 1.jpg',
           link: 'https://2022.thef2e.com/jobs',
           list: [
             {
@@ -139,7 +139,7 @@ export default {
         },
         {
           title: '新加坡商鈦坦科技',
-          image: '/img/hiring/sponsor_img-1.jpg',
+          image: '/2022_f2e_week1/img/hiring/sponsor_img-1.jpg',
           link: 'https://2022.thef2e.com/jobs',
           list: [
             {
@@ -163,7 +163,7 @@ export default {
         },
         {
           title: '凱鈿行動科技',
-          image: '/img/hiring/sponsor_img.jpg',
+          image: '/2022_f2e_week1/img/hiring/sponsor_img.jpg',
           link: 'https://2022.thef2e.com/jobs',
           list: [
             {

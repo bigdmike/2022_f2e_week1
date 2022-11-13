@@ -12,7 +12,7 @@
         data-background-el
         v-for="item in quest_data.length + 2"
         :key="`bg_${item}`"
-        src="/img/quest_background.svg"
+        src="/2022_f2e_week1/img/quest_background.svg"
         :class="
           item == 1
             ? ''
