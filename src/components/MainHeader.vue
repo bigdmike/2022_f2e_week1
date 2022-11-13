@@ -3,7 +3,7 @@
     class="fixed z-40 w-full max-w-screen-xl px-10 transform -translate-x-1/2 xl:px-0 top-8 left-1/2"
   >
     <div class="flex items-center justify-end">
-      <img src="@/assets/img/THE F2E.svg" class="mr-8" />
+      <img src="/img/THE F2E.svg" class="mr-8" />
       <div class="relative inline-flex md:hidden">
         <button @click="$emit('open-action', true)" class="relative">
           <span class="relative z-10 flex items-center">

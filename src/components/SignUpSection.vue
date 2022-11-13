@@ -49,7 +49,7 @@
       >
         <img
           data-seal
-          src="@/assets/img/character/seal.svg"
+          src="/img/character/seal.svg"
           class="md:w-44 sm:w-36 w-28 transform translate-y-[105%]"
         />
       </div>
@@ -58,7 +58,7 @@
       <!-- Right GHOST -->
       <img
         data-ghost-right
-        src="@/assets/img/character/ghost_red.svg"
+        src="/img/character/ghost_red.svg"
         class="absolute right-0 transform translate-x-[85%] md:translate-y-0 sm:-translate-y-1/2 -scale-x-100 -rotate-[15deg] md:w-36 sm:w-24 w-20 md:top-auto sm:top-1/2 sm:bottom-auto bottom-12 md:bottom-24 z-10"
       />
       <!-- Right GHOST -->
@@ -66,7 +66,7 @@
       <!-- TOP GHOST -->
       <img
         data-ghost-top
-        src="@/assets/img/character/ghost_orange.svg"
+        src="/img/character/ghost_orange.svg"
         class="absolute left-1/2 transform rotate-[165deg] -translate-x-1/2 -translate-y-[85%] md:w-36 sm:w-24 w-20 top-0 z-10"
       />
       <!-- TOP GHOST -->
@@ -74,7 +74,7 @@
       <!-- CAT -->
       <img
         data-cat
-        src="@/assets/img/character/cat.svg"
+        src="/img/character/cat.svg"
         class="absolute left-0 z-10 md:w-40 sm:w-32 w-[90px] transform rotate-45 -translate-x-[90%] -translate-y-[40%] sm:-translate-y-1/2 top-1/2"
       />
       <!-- CAT -->
@@ -85,11 +85,11 @@
         class="absolute z-10 flex items-center transform translate-y-[50%] -bottom-5 sm:-bottom-8 md:-bottom-10 md:left-80 left-7 sm:left-32"
       >
         <img
-          src="@/assets/img/character/ghost_blue.svg"
+          src="/img/character/ghost_blue.svg"
           class="w-20 mr-2 sm:mr-5 sm:w-24 md:w-32"
         />
         <img
-          src="@/assets/img/character/ghost_purple.svg"
+          src="/img/character/ghost_purple.svg"
           class="w-20 sm:w-24 md:w-32"
         />
       </div>

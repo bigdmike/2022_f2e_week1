@@ -18,12 +18,12 @@
             <img
               :class="progress >= 70 ? 'opacity-0' : 'opacity-100'"
               class="relative z-10 w-10 sm:w-auto"
-              src="@/assets/img/pacman_yellow_open.svg"
+              src="/img/pacman_yellow_open.svg"
             />
             <img
               :class="progress >= 70 ? 'opacity-100' : 'opacity-0'"
               class="absolute top-0 left-0 z-10 w-10 sm:w-auto"
-              src="@/assets/img/pacman_black_open.svg"
+              src="/img/pacman_black_open.svg"
             />
           </div>
         </li>
@@ -125,28 +125,28 @@ export default {
           title: 'SignUp!',
           type: 'text_image',
           content: '個別組別開賽<br/>UI/團體 10/31(一)<br/>前端 11/07 (一)',
-          image: '@/assets/img/timeline_section_signup.png',
+          image: '/img/timeline_section_signup.png',
         },
         {
           background_color: '#6633FF',
           title: 'Start!',
           type: 'text_image',
           content: '各組別開賽<br/>UI/團體 10/31(一)<br/>前端 11/07 (一)',
-          image: '@/assets/img/timeline_section_start.png',
+          image: '/img/timeline_section_start.png',
         },
         {
           background_color: '#FF7A00',
           title: 'Upload!',
           type: 'text_image',
           content: '登陸作品<br/>10/31(一) 12:00 -<br/>11/28 (一) 12:00',
-          image: '@/assets/img/timeline_section_upload.png',
+          image: '/img/timeline_section_upload.png',
         },
         {
           background_color: '#FBBF00',
           title: 'Stream',
           type: 'text_image',
           content: '線上直播<br/>11/3 - 11/24<br/> (每週四)',
-          image: '@/assets/img/timeline_section_stream.png',
+          image: '/img/timeline_section_stream.png',
         },
         {
           background_color: '#FBBF00',

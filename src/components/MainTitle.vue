@@ -7,7 +7,7 @@
       data-title
       class="absolute z-10 flex items-center justify-center w-full px-16 transform -translate-x-1/2 left-1/2 top-12"
     >
-      <img src="@/assets/img/title.svg" class="" />
+      <img src="/img/title.svg" class="" />
     </div>
 
     <div
@@ -18,7 +18,7 @@
         data-background-el
         v-for="item in 4"
         :key="`bg_${item}`"
-        src="@/assets/img/title_background.svg"
+        src="/img/title_background.svg"
         :class="
           item == 1
             ? ''
@@ -63,16 +63,16 @@
             class="absolute top-0 bottom-0 w-2 h-full bg-white -right-2"
           ></span>
           <img
-            src="@/assets/img/character/cat.svg"
+            src="/img/character/cat.svg"
             class="absolute top-0 left-0 w-24 transform -translate-y-full sm:w-32 md:left-40 sm:left-20"
           />
           <img
-            src="@/assets/img/character/seal.svg"
+            src="/img/character/seal.svg"
             class="absolute top-0 right-0 w-32 transform -translate-y-full sm:w-40 md:w-44 md:right-20 sm:right-10"
           />
 
           <div class="items-center justify-center hidden md:flex">
-            <img src="@/assets/img/pacman_yellow_open.svg" class="w-24 mr-2" />
+            <img src="/img/pacman_yellow_open.svg" class="w-24 mr-2" />
             <div class="relative -mt-4">
               <h2
                 class="relative z-10 leading-normal text-white font-pixel text-8xl"
@@ -88,7 +88,7 @@
           <div class="block md:hidden">
             <div class="flex items-center">
               <img
-                src="@/assets/img/pacman_yellow_open.svg"
+                src="/img/pacman_yellow_open.svg"
                 class="w-20 mr-2 sm:w-24"
               />
               <div class="relative mb-4 sm:-mt-4 sm:mb-0">
@@ -151,19 +151,19 @@
         >
           <img
             class="ml-10 mr-10 sm:mr-20 sm:ml-20 sm:w-20 w-11 md:mr-24 md:w-24 md:ml-0"
-            src="@/assets/img/character/ghost_blue.svg"
+            src="/img/character/ghost_blue.svg"
           />
           <img
             class="mr-2 sm:mr-4 sm:w-20 w-11 md:w-24"
-            src="@/assets/img/character/ghost_purple.svg"
+            src="/img/character/ghost_purple.svg"
           />
           <img
             class="mr-10 sm:mr-20 sm:w-20 w-11 md:mr-24 md:w-24"
-            src="@/assets/img/character/ghost_red.svg"
+            src="/img/character/ghost_red.svg"
           />
           <img
             class="sm:w-20 w-11 md:w-24"
-            src="@/assets/img/character/ghost_orange.svg"
+            src="/img/character/ghost_orange.svg"
           />
         </div>
       </article>

@@ -32,9 +32,6 @@ export class cover_section_animation {
     gsap.set(this.title, { opacity: 0, scale: 0 });
     gsap.set(this.sub_title, { y: '105%' });
     gsap.set(this.count_box, { y: '105%' });
-    gsap.set(this.top_ghost, { y: '-105%' });
-    gsap.set(this.left_ghost, { y: '105%' });
-    gsap.set(this.right_ghost, { y: '105%' });
   }
   setup() {
     this.reset();

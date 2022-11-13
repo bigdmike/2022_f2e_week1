@@ -11,12 +11,12 @@
     <!-- GHOST -->
     <img
       data-ghost-right
-      src="@/assets/img/character/ghost_orange.svg"
+      src="/img/character/ghost_orange.svg"
       class="absolute md:-bottom-10 sm:-bottom-12 -bottom-4 md:-right-10 sm:-right-20 -right-5 transform -rotate-[20deg] -scale-x-100 sm:w-60 w-24 z-10"
     />
     <img
       data-ghost-top
-      src="@/assets/img/character/ghost_blue.svg"
+      src="/img/character/ghost_blue.svg"
       class="absolute md:-top-20 sm:-top-14 -top-6 md:left-80 sm:left-16 left-8 transform -rotate-[200deg] md:w-60 sm:w-40 w-20 z-10"
     />
     <div
@@ -24,10 +24,10 @@
       class="absolute z-10 flex items-center sm:-bottom-8 -bottom-2 md:left-36 sm:left-10 left-8"
     >
       <img
-        src="@/assets/img/character/ghost_purple.svg"
+        src="/img/character/ghost_purple.svg"
         class="mr-4 sm:mr-5 sm:w-32 w-14"
       />
-      <img src="@/assets/img/character/ghost_red.svg" class="sm:w-32 w-14" />
+      <img src="/img/character/ghost_red.svg" class="sm:w-32 w-14" />
     </div>
     <!-- GHOST -->
     <div
@@ -36,11 +36,11 @@
       <div data-title>
         <img
           class="hidden w-full mb-8 md:block"
-          src="@/assets/img/text/cover_title.png"
+          src="/img/text/cover_title.png"
         />
         <img
           class="block w-full mb-8 md:hidden"
-          src="@/assets/img/text/cover_title@sm.png"
+          src="/img/text/cover_title@sm.png"
         />
       </div>
 
