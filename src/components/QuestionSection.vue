@@ -73,9 +73,9 @@ export default {
     this.question_section_animation = new question_section_animation(
       this.$refs.MainContent
     );
-    window.addEventListener('resize', () => {
-      this.question_section_animation.setup();
-    });
+    // window.addEventListener('resize', () => {
+    //   this.question_section_animation.setup();
+    // });
   },
 };
 </script>

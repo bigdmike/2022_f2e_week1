@@ -196,9 +196,9 @@ export default {
     this.main_title_section_animation = new main_title_section_animation(
       this.$refs.MainContent
     );
-    window.addEventListener('resize', () => {
-      this.main_title_section_animation.setup();
-    });
+    // window.addEventListener('resize', () => {
+    //   this.main_title_section_animation.setup();
+    // });
   },
 };
 </script>

@@ -179,9 +179,9 @@ export default {
     this.timeline_section_animation = new timeline_section_animation(
       this.$refs.MainContent
     );
-    window.addEventListener('resize', () => {
-      this.timeline_section_animation.setup();
-    });
+    // window.addEventListener('resize', () => {
+    //   this.timeline_section_animation.setup();
+    // });
   },
 };
 </script>

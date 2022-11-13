@@ -128,9 +128,9 @@ export default {
     this.cover_section_animation = new cover_section_animation(
       this.$refs.MainContent
     );
-    window.addEventListener('resize', () => {
-      this.cover_section_animation.setup();
-    });
+    // window.addEventListener('resize', () => {
+    //   this.cover_section_animation.setup();
+    // });
   },
 };
 </script>

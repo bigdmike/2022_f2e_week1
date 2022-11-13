@@ -148,9 +148,9 @@ export default {
     this.quest_section_animation = new quest_section_animation(
       this.$refs.MainContent
     );
-    window.addEventListener('resize', () => {
-      this.quest_section_animation.setup();
-    });
+    // window.addEventListener('resize', () => {
+    //   this.quest_section_animation.setup();
+    // });
   },
 };
 </script>
