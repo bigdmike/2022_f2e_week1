@@ -4,12 +4,14 @@
     class="relative w-[300vw] flex flex-nowrap h-screen bg-black"
   >
     <div
+      data-progress-box
       class="absolute left-0 z-10 w-screen px-10 transform -translate-y-1/2 progress top-1/2 md:px-0"
     >
       <ol
         class="relative flex items-center justify-center w-full max-w-screen-lg mx-auto"
       >
         <li
+          data-pacman
           class="absolute bottom-0 left-0 z-10 transform -translate-x-1/2 translate-y-1/2 pacman"
         >
           <div class="relative">
@@ -31,6 +33,7 @@
           class="relative z-0 w-1/5 h-5 px-6 text-center sm:h-auto"
         >
           <p
+            data-progress-title
             :class="progress >= 70 ? 'text-black' : 'text-yellow-400'"
             class="absolute block mb-12 text-xs transition-colors duration-300 transform -translate-x-1/2 -translate-y-8 sm:text-base sm:relative sm:left-0 left-1/2 sm:-translate-x-0 sm:translate-y-0"
           >
@@ -53,10 +56,11 @@
       </ol>
     </div>
     <article
-      id="SectionA"
+      data-article
       class="flex-shrink-0 w-screen h-screen bg-black"
     ></article>
     <article
+      data-article
       v-for="(item, item_index) in section_data"
       :key="`section_${item_index}`"
       :style="`background-color:${item.background_color}`"
@@ -106,7 +110,7 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger } from '@/gsap/gsap_loader';
+import { timeline_section_animation } from '@/gsap/scroll/timeline_section';
 import MainDialog from '@/components/MainDialog.vue';
 export default {
   name: 'TimelineSection',
@@ -163,165 +167,21 @@ export default {
         },
       ],
       progress: 0,
+      timeline_section_animation: null,
     };
   },
-  methods: {
-    GSAPHorizontalScroll() {
-      let Sections = this.$refs.MainContent.querySelectorAll('article');
-      const progress_box = this.$refs.MainContent.querySelectorAll('.progress');
-      const pacman = this.$refs.MainContent.querySelectorAll('.pacman');
-
-      let GSAPHorizontalScrollTL = gsap.timeline({
-        scrollTrigger: {
-          trigger: this.$refs.MainContent,
-          pin: true,
-          scrub: 0,
-          ease: 'none',
-          snap: 1 / (Sections.length - 1),
-          end: () => '+=' + this.$refs.MainContent.offsetWidth,
-          onUpdate: (self) => {
-            this.progress = self.progress.toFixed(2) * 100;
-          },
-          // markers: "true",
-        },
-      });
-      GSAPHorizontalScrollTL.to(Sections, {
-        xPercent: -100 * (Sections.length - 1),
-        ease: 'none',
-      });
-
-      Sections.forEach((item, item_index) => {
-        const dialog_box = item.querySelectorAll('.dialog_box');
-        const image_box = item.querySelectorAll('.image_box');
-
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: item,
-            containerAnimation: GSAPHorizontalScrollTL,
-            start: 'left center',
-            end: 'center center',
-            scrub: true,
-            // markers: true,
-          },
-        });
-        ScrollTrigger.matchMedia({
-          // large
-          '(min-width: 768px)': function () {
-            tl.from(dialog_box, {
-              y: 120,
-              ease: 'none',
-            }).fromTo(
-              image_box,
-              {
-                y: -120,
-              },
-              {
-                y: 100,
-                ease: 'none',
-              }
-            );
-          },
-
-          // medium
-          '(min-width: 640px) and (max-width: 768px)': function () {
-            tl.from(
-              dialog_box,
-              {
-                scale: 0,
-                ease: 'none',
-              },
-              'same'
-            ).fromTo(
-              image_box,
-              {
-                y: 220,
-                scale: 0.5,
-              },
-              {
-                y: 100,
-                scale: 1,
-                ease: 'none',
-              },
-              'same'
-            );
-          },
-        });
-
-        let progress_tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: item,
-            containerAnimation: GSAPHorizontalScrollTL,
-            start: '80% center',
-            end: 'center left',
-            scrub: true,
-            // markers: true,
-          },
-        });
-        if (item_index == 0) {
-          ScrollTrigger.matchMedia({
-            // large
-            '(min-width: 768px)': function () {
-              progress_tl
-                .fromTo(
-                  progress_box,
-                  {
-                    top: '50%',
-                  },
-                  {
-                    top: '15%',
-                  }
-                )
-                .to(pacman, {
-                  left: '10%',
-                });
-            },
-
-            // medium
-            '(min-width: 640px) and (max-width: 768px)': function () {
-              progress_tl
-                .fromTo(
-                  progress_box,
-                  {
-                    top: '50%',
-                  },
-                  {
-                    top: '10%',
-                  }
-                )
-                .to(pacman, {
-                  left: '10%',
-                });
-            },
-            '(max-width: 640px)': function () {
-              progress_tl
-                .fromTo(
-                  progress_box,
-                  {
-                    top: '50%',
-                  },
-                  {
-                    top: '13%',
-                  }
-                )
-                .to(pacman, {
-                  left: '13%',
-                });
-            },
-          });
-        } else {
-          progress_tl.to(pacman, {
-            left: (item_index * 2 + 1) * 10 + '%',
-            ease: 'none',
-            onUpdate: () => {
-              this.progress = item_index;
-            },
-          });
-        }
-      });
+  watch: {
+    'timeline_section_animation.progress'() {
+      this.progress = this.timeline_section_animation.progress;
     },
   },
   mounted() {
-    this.GSAPHorizontalScroll();
+    this.timeline_section_animation = new timeline_section_animation(
+      this.$refs.MainContent
+    );
+    window.addEventListener('resize', () => {
+      this.timeline_section_animation.setup();
+    });
   },
 };
 </script>

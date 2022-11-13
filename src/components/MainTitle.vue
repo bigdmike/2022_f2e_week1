@@ -4,17 +4,18 @@
     class="w-full h-[200vh] font-pixel relative overflow-hidden"
   >
     <div
-      ref="title"
+      data-title
       class="absolute z-10 flex items-center justify-center w-full px-16 transform -translate-x-1/2 left-1/2 top-12"
     >
       <img src="/img/title.svg" class="" />
     </div>
 
     <div
-      ref="BackgroundImage"
+      data-background-box
       class="absolute top-0 left-0 transform z-[1] w-full h-screen"
     >
       <img
+        data-background-el
         v-for="item in 4"
         :key="`bg_${item}`"
         src="/img/title_background.svg"
@@ -29,7 +30,7 @@
       />
     </div>
 
-    <div ref="AriticleBox" class="relative z-20 w-full h-screen">
+    <div data-article-box class="relative z-20 w-full h-screen">
       <article
         class="relative flex items-center justify-center w-full h-screen px-8 md:px-20 sm:px-16"
       >
@@ -171,8 +172,8 @@
 </template>
 
 <script>
-import { gsap } from '@/gsap/gsap_loader';
 import MainTitleMarquee from '@/components/MainTitle/Marquee.vue';
+import { main_title_section_animation } from '@/gsap/scroll/main_title_section';
 export default {
   name: 'QuestSection',
   components: {
@@ -185,130 +186,15 @@ export default {
         [0, 0.4, 0, 0.4, 0, 0.2, 0, 0.4, 0, 0.4, 0, 0.6],
         [0.2, 0, 0.4, 0, 0.2, 0, 0.4, 0, 0.1, 0.2, 0.6, 0],
       ],
+      main_title_section_animation: null,
     };
   },
   mounted() {
-    let bg_el = this.$refs.BackgroundImage.querySelectorAll('.bg_el');
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: '0 top',
-        end: window.innerHeight + ' top',
-        scrub: true,
-        pin: this.$refs.title,
-      },
-    });
-
-    tl.fromTo(
-      this.$refs.title,
-      {
-        scale: 1,
-        opacity: 1,
-      },
-      {
-        scale: 2,
-        opacity: 0,
-      },
-      'same'
+    this.main_title_section_animation = new main_title_section_animation(
+      this.$refs.MainContent
     );
-    tl.fromTo(
-      this.$refs.AriticleBox,
-      {
-        scale: 0.2,
-        opacity: 0,
-      },
-      {
-        scale: 1,
-        opacity: 1,
-      },
-      'same'
-    );
-    tl.to(
-      bg_el[0],
-      {
-        scale: 4,
-      },
-      'same'
-    );
-    tl.to(
-      bg_el[1],
-      {
-        scale: 1,
-      },
-      'same'
-    );
-
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: window.innerHeight + ' top',
-        end: window.innerHeight * 2 + ' top',
-        scrub: true,
-      },
-    });
-
-    let leave_tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: window.innerHeight * 2 + ' top',
-        end: window.innerHeight * 2.5 + ' top',
-        markers: true,
-        scrub: true,
-      },
-    });
-
-    leave_tl.fromTo(
-      this.$refs.AriticleBox,
-      {
-        opacity: 1,
-        scale: 1,
-      },
-      {
-        opacity: 0,
-        scale: 3,
-      },
-      'same'
-    );
-    leave_tl.to(
-      this.$refs.MainContent,
-      {
-        backgroundColor: '#52C4CC',
-      },
-      'same'
-    );
-    leave_tl.to(
-      this.$refs.BackgroundImage,
-      {
-        opacity: 0,
-      },
-      'same'
-    );
-
-    gsap.to(this.$refs.AriticleBox, {
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'top top',
-        end: window.innerHeight * 2.5 + ' top',
-        pin: this.$refs.AriticleBox,
-      },
-    });
-
-    gsap.to(this.$refs.BackgroundImage, {
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'top top',
-        end: window.innerHeight * 2.5 + ' top',
-        pin: this.$refs.BackgroundImage,
-      },
-    });
-
-    gsap.to(this.$refs.MainContent, {
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'top top',
-        end: window.innerHeight * 2.5 + ' top',
-        pin: this.$refs.MainContent,
-      },
+    window.addEventListener('resize', () => {
+      this.main_title_section_animation.setup();
     });
   },
 };

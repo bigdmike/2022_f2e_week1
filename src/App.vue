@@ -1,6 +1,7 @@
 <template>
-  <div id="app" class="overflow-hidden bg-black">
-    <MainHeader />
+  <div id="app" class="overflow-x-hidden bg-black">
+    <MainHeader @open-action="TriggerMenu" />
+    <MainMenu :status="menu_status" @close-action="TriggerMenu" />
     <CoverSection />
     <QuestionSection />
     <MainTitle />
@@ -24,6 +25,7 @@ import MainHeader from '@/components/MainHeader.vue';
 import SignUpSection from '@/components/SignUpSection.vue';
 import SponsorSection from '@/components/SponsorSection.vue';
 import HiringSection from '@/components/HiringSection.vue';
+import MainMenu from '@/components/MainMenu.vue';
 
 export default {
   name: 'App',
@@ -37,13 +39,23 @@ export default {
     SignUpSection,
     SponsorSection,
     HiringSection,
+    MainMenu,
   },
   data() {
     return {
       zoom_in_scroll: null,
+      menu_status: false,
     };
   },
-  mounted() {},
+  methods: {
+    TriggerMenu(val) {
+      console.log(val);
+      this.menu_status = val;
+    },
+  },
+  mounted() {
+    window.scrollTo(0, 0);
+  },
 };
 </script>
 

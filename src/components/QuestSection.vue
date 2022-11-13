@@ -1,13 +1,15 @@
 <template>
   <section
+    id="QuestSection"
     ref="MainContent"
     class="w-full h-[1000vh] font-pixel relative overflow-hidden"
   >
     <div
-      ref="BackgroundImage"
+      data-background-box
       class="absolute top-0 left-0 transform z-[1] w-full h-screen"
     >
       <img
+        data-background-el
         v-for="item in quest_data.length + 2"
         :key="`bg_${item}`"
         src="/img/quest_background.svg"
@@ -22,12 +24,9 @@
       />
     </div>
 
-    <div
-      ref="background"
-      class="absolute bg-[#52C4CC] top-0 bottom-0 left-0 right-0 z-0 w-full h-screen transform background"
-    ></div>
-    <div ref="AriticleBox" class="relative z-20 w-full h-screen">
+    <div data-article-box class="relative z-20 w-full h-screen">
       <article
+        data-article
         v-for="(item, item_index) in quest_data"
         :key="`quest_${item_index}`"
         :style="`z-index:${quest_data.length - item_index}`"
@@ -104,14 +103,14 @@
           </div>
         </div>
       </article>
-      <article class="absolute z-0 opacity-0"></article>
-      <article class="absolute z-0 opacity-0"></article>
+      <article data-article class="absolute z-0 opacity-0"></article>
+      <article data-article class="absolute z-0 opacity-0"></article>
     </div>
   </section>
 </template>
 
 <script>
-import { gsap } from '@/gsap/gsap_loader';
+import { quest_section_animation } from '@/gsap/scroll/quest_section';
 export default {
   name: 'QuestSection',
   data() {
@@ -142,182 +141,15 @@ export default {
           background_color: '#FF7A00',
         },
       ],
+      quest_section_animation: null,
     };
   },
   mounted() {
-    const articles = this.$refs.AriticleBox.querySelectorAll('article');
-    const parent_height = articles[0].clientHeight;
-    const bg_line = this.$refs.BackgroundImage.querySelectorAll('.bg_el');
-
-    // reset
-    articles.forEach((item, item_index) => {
-      gsap.set(item, {
-        opacity: item_index == 0 ? 1 : (1 / Math.pow(2, item_index)) * 0,
-        scale: item_index == 0 ? 1 : 1 / Math.pow(2, item_index),
-      });
-    });
-    gsap.set(this.$refs.background, {
-      backgroundColor: this.quest_data[0].background_color,
-    });
-
-    let first_tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'top top',
-        end: parent_height + ' top',
-        scrub: true,
-        // markers: true,
-      },
-    });
-
-    first_tl.fromTo(
-      this.$refs.AriticleBox,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-      },
-      'same'
+    this.quest_section_animation = new quest_section_animation(
+      this.$refs.MainContent
     );
-
-    first_tl.fromTo(
-      this.$refs.BackgroundImage,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-      },
-      'same'
-    );
-
-    //articles
-    articles.forEach((item, step_index) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: this.$refs.MainContent,
-          start: step_index * 2 * parent_height + parent_height + ' top',
-          end: step_index * 2 * parent_height + parent_height * 2 + ' top',
-          scrub: true,
-          // markers: true,
-        },
-        onStart: () => {
-          console.log(step_index + ' START!');
-        },
-        onComplete: () => {
-          console.log(step_index + ' END!');
-        },
-      });
-
-      // line
-      tl.to(
-        bg_line[step_index],
-        {
-          scale: 4,
-        },
-        'same'
-      );
-      tl.to(
-        bg_line[step_index + 1],
-        {
-          scale: 1,
-        },
-        'same'
-      );
-      tl.to(
-        bg_line[step_index + 2],
-        {
-          opacity: 1,
-          scale: 0.25,
-        },
-        'same'
-      );
-
-      // background
-      if (step_index == 0) {
-        tl.fromTo(
-          this.$refs.background,
-          {
-            backgroundColor: this.quest_data[step_index].background_color,
-          },
-          {
-            backgroundColor: this.quest_data[step_index].background_color,
-            ease: 'none',
-          },
-          'same'
-        );
-      } else if (step_index <= this.quest_data.length - 1) {
-        tl.to(
-          this.$refs.background,
-          {
-            backgroundColor: this.quest_data[step_index].background_color,
-            ease: 'none',
-          },
-          'same'
-        );
-      } else if (step_index == articles.length - 2) {
-        tl.to(
-          this.$refs.background,
-          {
-            backgroundColor: 'black',
-            ease: 'none',
-          },
-          'same'
-        );
-      }
-
-      //articles
-      articles.forEach((article, article_index) => {
-        tl.to(
-          article,
-          {
-            touchAction: article_index == step_index ? '' : 'none',
-            userSelect: article_index == step_index ? '' : 'none',
-            scale:
-              article_index == step_index
-                ? 1
-                : article_index < step_index
-                ? 2
-                : 1 / Math.pow(2, article_index - step_index),
-            opacity:
-              article_index == step_index
-                ? 1
-                : article_index < step_index
-                ? 0
-                : (1 / Math.pow(2, article_index - step_index)) * 0.3,
-            ease: 'none',
-          },
-          'same'
-        );
-      });
-    });
-
-    gsap.to(this.$refs.AriticleBox, {
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'top top',
-        end: 'bottom bottom',
-        pin: this.$refs.AriticleBox,
-      },
-    });
-
-    gsap.to(this.$refs.BackgroundImage, {
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'top top',
-        end: 'bottom bottom',
-        pin: this.$refs.BackgroundImage,
-      },
-    });
-
-    gsap.to(this.$refs.background, {
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'top top',
-        end: 'bottom bottom',
-        pin: this.$refs.background,
-      },
+    window.addEventListener('resize', () => {
+      this.quest_section_animation.setup();
     });
   },
 };

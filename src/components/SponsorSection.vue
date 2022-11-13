@@ -164,50 +164,7 @@
 </template>
 
 <script>
-import { gsap } from '@/gsap/gsap_loader';
 export default {
   name: 'MainContent',
-  mounted() {
-    let timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: this.$refs.MainContent,
-        start: 'center center',
-        // end: 'bottom top',
-        // scrub: true,
-      },
-    });
-
-    timeline
-      .fromTo(
-        this.$refs.FirstDialog,
-        {
-          //   y: '30%',
-          scale: 0,
-          transformOrigin: 'left bottom',
-        },
-        {
-          //   y: '-50%',
-          scale: 1,
-          transformOrigin: 'left bottom',
-          //   ease: 'power3.inOut',
-        },
-        'sametime'
-      )
-      .fromTo(
-        this.$refs.SecondDialog,
-        {
-          //   y: '30%',
-          scale: 0,
-          transformOrigin: 'right bottom',
-        },
-        {
-          //   y: '-50%',
-          scale: 1,
-          transformOrigin: 'right bottom',
-          //   ease: 'power3.inOut',
-        },
-        'sametime'
-      );
-  },
 };
 </script>

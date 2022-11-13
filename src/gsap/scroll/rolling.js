@@ -1,18 +1,13 @@
-import { gsap, ScrollTrigger } from '@/gsap/gsap_loader';
-
-gsap.registerPlugin(ScrollTrigger);
+import { ScrollTrigger } from '@/gsap/gsap_loader';
 
 export class Scroll {
   constructor(options) {
     this.tweens = [];
-    // this.els = document.querySelectorAll('[data-scroll]');
     this.els = [];
     this.options = {
       start: '0% 80%',
-      //   end: '100% 80%',
       scrub: 1,
       ease: 'none',
-      markers: false,
       ...options,
     };
 
@@ -32,6 +27,5 @@ export class Scroll {
     requestAnimationFrame(() => {
       ScrollTrigger.refresh();
     });
-    // ScrollTrigger.refresh();
   }
 }
