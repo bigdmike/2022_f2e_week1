@@ -8,6 +8,7 @@
       <TimelineSection />
     </div>
     <SignUpSection />
+    <CommonQuestion />
     <SponsorSection />
     <HiringSection />
   </div>
@@ -22,6 +23,7 @@ import QuestionSection from '@/components/QuestionSection.vue';
 import SignUpSection from '@/components/SignUpSection.vue';
 import SponsorSection from '@/components/SponsorSection.vue';
 import HiringSection from '@/components/HiringSection.vue';
+import CommonQuestion from '@/components/CommonQuestion.vue';
 
 export default {
   name: 'HomePageView',
@@ -34,6 +36,7 @@ export default {
     SignUpSection,
     SponsorSection,
     HiringSection,
+    CommonQuestion,
   },
 };
 </script>

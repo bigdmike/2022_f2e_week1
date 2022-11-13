@@ -148,6 +148,7 @@ export class quest_section_animation {
           {
             touchAction: article_index == step_index ? '' : 'none',
             userSelect: article_index == step_index ? '' : 'none',
+            zIndex: article_index == step_index ? 10 : article_index,
             scale:
               article_index == step_index
                 ? 1

@@ -29,7 +29,6 @@
         data-article
         v-for="(item, item_index) in quest_data"
         :key="`quest_${item_index}`"
-        :style="`z-index:${quest_data.length - item_index}`"
         class="absolute top-0 left-0 flex items-center justify-center w-full h-screen overflow-hidden bg-transparent"
       >
         <div
@@ -121,7 +120,7 @@ export default {
           sub_title: 'Week1',
           sponsor: '版塊設計',
           content: '視差滾動',
-          link: '',
+          link: 'https://2022.thef2e.com/news/week1',
           background_color: '#52C4CC',
         },
         {
@@ -129,7 +128,7 @@ export default {
           sub_title: 'Week2',
           sponsor: '凱鈿<br class="block sm:hidden"/>行動科技',
           content: 'Canvas',
-          link: '',
+          link: 'https://2022.thef2e.com/news/week2',
           background_color: '#6633FF',
         },
         {
@@ -137,7 +136,7 @@ export default {
           sub_title: 'Week3',
           sponsor: '新加坡商<br class="block sm:hidden"/>鈦坦科技',
           content: 'JS DRAGGABLE',
-          link: '',
+          link: 'https://2022.thef2e.com/news/week3',
           background_color: '#FF7A00',
         },
       ],
